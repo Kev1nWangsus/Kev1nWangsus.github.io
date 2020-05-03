@@ -1,193 +1,107 @@
 var app = new Vue({
   el: '#page',
   data: {
-    网页名称: '鲲鲲的个人简历',
-    姓名: '鲲鲲',
-    号码: '13886886886',
-    邮箱: 'happy@123.com',
-    个人网页: 'www.baidu.com',
-    地址: '测试的',
-    职业: '时长两年半的个人练习生',
-    头像地址: 'images/user.png',
-    /** 支持类型有[微博,qq,git,instagram]*/
-    联系方式: [
+    webPage: 'Shuo Wang',
+    name: 'Shuo Wang',
+    email: '1875689740ws@gmail.com',
+    address: '',
+    briefintro: 'Computer Engineering Undergrad @ UCSB',
+    profileurl: 'images/Kevin.jpg',
+
+    contact: [
       {
-        类型: '微博',
-        地址: 'https://weibo.com'
+        type: 'git',
+        link: 'https://kev1nwangsus.github.com'
       },
       {
-        类型: 'qq',
-        地址: '234'
+        type: 'bilibili',
+        link: 'https://live.bilibili.com/14862896'
       },
       {
-        类型: 'git',
-        地址: '23423'
-      },
-      {
-        类型: 'instagram',
-        地址: '234234'
+        type: 'instagram',
+        link: '1'
       }
     ],
-    关于我标题: '大家好',
-    关于我内容: '我是练习时长两年半的个人练习生，喜欢唱，跳，rap，music，鸡你太美～',
-    /** 个人简历*/
-    工作经历: [
+    hi: "Yo! What's up!",
+    content: "My name is Shuo Wang. I'm a first year computer engineering student in UC Santa Barbara. I like coding, but I'm currently working on embedded system and hardware design.",
+    /** Personal resume*/
+    interns: [
+      
+    ],
+    /** Education background*/
+    education: [
       {
-        职业名称: '练习生',
-        公司名称: '公司名称',
-        时间: '2016 - 现在',
-        介绍: '我是练习时长两年半的个人练习生，喜欢唱，跳，rap，music，鸡你太美～'
+        Level: 'High School',
+        SchoolName: 'Nanjing Foreign Language School',
+        Time: '2016 - 2019',
+        Intro: ''
       },
       {
-        职业名称: '练习生',
-        公司名称: '公司名称',
-        时间: '2016 - 现在',
-        介绍: '我是练习时长两年半的个人练习生，喜欢唱，跳，rap，music，鸡你太美～'
-      },
-      {
-        职业名称: '练习生',
-        公司名称: '公司名称',
-        时间: '2016 - 现在',
-        介绍: '我是练习时长两年半的个人练习生，喜欢唱，跳，rap，music，鸡你太美～'
+        Level: 'College',
+        SchoolName: 'UC Santa Barbara',
+        Time: '2019 - Present',
+        Intro: 'Major : Computer Engineering'
       },
     ],
-    /** 教育经历*/
-    教育经历: [
+    /** ability*/
+    ability: [
       {
-        学段: '小学',
-        学校名称: '学校名称',
-        时间: '2016 - 现在',
-        介绍: '我是练习时长两年半的个人练习生，喜欢唱，跳，rap，music，鸡你太美～'
+        name: '唱',
+        intro: 'Sing'
       },
       {
-        学段: '大学',
-        学校名称: '公司名称',
-        时间: '2016 - 现在',
-        介绍: '我是练习时长两年半的个人练习生，喜欢唱，跳，rap，music，鸡你太美～'
+        name: '跳',
+        intro: 'Jump'
       },
       {
-        学段: '初中',
-        学校名称: '公司名称',
-        时间: '2016 - 现在',
-        介绍: '我是练习时长两年半的个人练习生，喜欢唱，跳，rap，music，鸡你太美～'
+        name: 'RAP',
+        intro: 'Rip'
+      },
+      {
+        name: '篮球',
+        intro: 'Basketball'
       },
     ],
-    /** 我的能力 图标可以打开/fonts/demo.html看看需要什么样的图标*/
-    我的能力: [
+    /** skill*/
+    skills: [
       {
-        名称: '唱',
-        图标: '学校名称',
-        介绍: '唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱'
+        name: 'Python',
+        percent: 100,
       },
       {
-        名称: '跳',
-        图标: '学校名称',
-        介绍: '唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱'
+        name: 'C/C++',
+        percent: 100
       },
       {
-        名称: 'rap',
-        图标: '学校名称',
-        介绍: '唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱'
+        name: 'html/css',
+        percent: 80
       },
       {
-        名称: '篮球',
-        图标: '学校名称',
-        介绍: '唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱'
+        name: 'Linux',
+        percent: 60
       },
       {
-        名称: '篮球',
-        图标: '学校名称',
-        介绍: '唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱'
-      },
-      {
-        名称: '篮球',
-        图标: '学校名称',
-        介绍: '唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱唱'
+        name: 'Embedded System',
+        percent: 50
       }
     ],
-    /** 我的技能*/
-    我的技能: [
+    /** work*/
+    work: [
       {
-        名称: '唱',
-        进度: 100,
+        name: '2048',
+        link: '2048.html',
+        pic: 'images/2048.png',
+        intro: '2048 based on JavaScript'
       },
       {
-        名称: '跳',
-        进度: 100
-      },
-      {
-        名称: 'rap',
-        进度: 100
-      },
-      {
-        名称: '篮球',
-        进度: 90
-      },
-      {
-        名称: '篮球',
-        进度: 80
-      },
-      {
-        名称: '篮球',
-        进度: 100
-      },
-      {
-        名称: '篮球',
-        进度: 100
-      },
-      {
-        名称: '篮球',
-        进度: 100
-      }
-    ],
-    /** 我的作品*/
-    我的作品: [
-      {
-        名称: '篮球',
-        地址: 'www.baidu.com',
-        图片: 'images/cxk.jpg',
-        简介: '新作品'
-      },
-      {
-        名称: '篮球',
-        地址: 'www.baidu.com',
-        图片: 'images/cxk.jpg',
-        简介: '新作品'
-      },
-      {
-        名称: '篮球',
-        地址: 'www.baidu.com',
-        图片: 'images/cxk.jpg',
-        简介: '新作品'
-      }, {
-        名称: '篮球',
-        地址: 'www.baidu.com',
-        图片: 'images/cxk.jpg',
-        简介: '新作品'
-      }, {
-        名称: '篮球',
-        地址: 'www.baidu.com',
-        图片: 'images/cxk.jpg',
-        简介: '新作品'
-      }, {
-        名称: '篮球',
-        地址: 'www.baidu.com',
-        图片: 'images/cxk.jpg',
-        简介: '新作品'
-      }, {
-        名称: '篮球',
-        地址: 'www.baidu.com',
-        图片: 'images/cxk.jpg',
-        简介: '新作品'
-      }, {
-        名称: '篮球',
-        地址: 'www.baidu.com',
-        图片: 'images/cxk.jpg',
-        简介: '新作品'
+        name: 'Tetris',
+        link: 'https://github.com/Kev1nWangsus/Arduino_tft',
+        pic: 'images/tetris.jpg',
+        intro: 'Tetris game based on Teensy 3.2'
       }
     ]
   },
   mounted () {
-    document.title = this.网页名称
+    document.title = this.webPage
   }
 })

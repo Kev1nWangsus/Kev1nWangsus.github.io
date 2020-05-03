@@ -50,19 +50,15 @@
 				<div class="col-md-8 col-md-offset-2 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<div :style="{backgroundImage: 'url(' + 头像地址 + ')'}" class="profile-thumb"></div>
-							<h1><span>{{姓名}}</span></h1>
-							<h3><span>{{职业}}</span></h3>
+							<div :style="{backgroundImage: 'url(' + profileurl + ')'}" class="profile-thumb"></div>
+							<h1><span>{{name}}</span></h1>
+							<h3><span>{{briefintro}}</span></h3>
 							<p>
 								<ul class="fh5co-social-icons">
-									<li v-for="el in 联系方式">
-										<a :href="el.地址" v-if="el.类型==='instagram'" target="_blank"><i class="icon-instagram" ></i></a>
-										<a :href="el.地址" v-if="el.类型==='git'" target="_blank"><i class="icon-github" ></i></a>
-										<a :href="el.地址" v-if="el.类型==='微信'" target="_blank"><i class="icon-wechat" ></i></a>
-										<a :href="el.地址" v-if="el.类型==='微博'" target="_blank"><i class="icon-sina-weibo" ></i></a>
-										<a :href="'http://wpa.qq.com/msgrd?v=3&uin='+el.地址+'&site=qq&menu=yes'" v-if="el.类型==='qq'" target="_blank">
-											<i class="icon-qq" ></i>
-										</a>
+									<li v-for="el in contact">
+										<!-- <a :href="el.link" v-if="el.type==='instagram'" target="_blank"><i class="icon-instagram" ></i></a> -->
+										<a :href="el.link" v-if="el.type==='git'" target="_blank"><i class="icon-github" ></i></a>
+										<a :href="el.link" v-if="el.type==='bilibili'" target="_blank"><i class="icon-instagram" ></i></a>
 									</li>
 								</ul>
 							</p>
@@ -77,35 +73,19 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>关&nbsp;&nbsp;/&nbsp;&nbsp;于&nbsp;&nbsp;/&nbsp;&nbsp;我</h2>
+					<h2>About Me</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
 					<ul class="info">
-						<li><span class="first-block">姓名:</span><span class="second-block">{{姓名}}</span></li>
-						<li><span class="first-block">号码:</span><span class="second-block">{{号码}}</span></li>
-						<li><span class="first-block">邮箱:</span><span class="second-block">{{邮箱}}</span></li>
-						<li><span class="first-block">个人网页:</span><span class="second-block">{{个人网页}}</span></li>
-						<li><span class="first-block">地址:</span><span class="second-block">{{地址}}</span></li>
+						<li><span class="first-block">Name:</span><span class="second-block">{{name}}</span></li>
+						<li><span class="first-block">E-mail:</span><span class="second-block">{{email}}</span></li>
 					</ul>
 				</div>
 				<div class="col-md-8">
-					<h2>{{关于我标题}}</h2>
-					<p>{{关于我内容}}</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li v-for="el in 联系方式" style="margin-right:5px;border-radius:10px ">
-									<a :href="el.地址" v-if="el.类型==='instagram'" target="_blank"><i class="icon-instagram2" ></i></a>
-									<a :href="el.地址" v-if="el.类型==='git'" target="_blank"><i class="icon-github" ></i></a>
-									<a :href="el.地址" v-if="el.类型==='微信'" target="_blank"><i class="icon-wechat" ></i></a>
-									<a :href="el.地址" v-if="el.类型==='微博'" target="_blank"><i class="icon-sina-weibo" ></i></a>
-									<a :href="'http://wpa.qq.com/msgrd?v=3&uin='+el.地址+'&site=qq&menu=yes'" v-if="el.类型==='qq'" target="_blank">
-										<i class="icon-qq" ></i>
-									</a>
-							</li>
-						</ul>
-					</p>
+					<h2>{{hi}}</h2>
+					<p>{{content}}</p>
 				</div>
 			</div>
 		</div>
@@ -115,14 +95,14 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>我&nbsp;&nbsp;/&nbsp;&nbsp;的&nbsp;&nbsp;/&nbsp;&nbsp;简&nbsp;&nbsp;/&nbsp;&nbsp;历</h2>
+					<h2>My Resume</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12 col-md-offset-0">
 					<ul class="timeline">
 						<li class="timeline-heading text-center animate-box">
-							<div><h3>工作经历</h3></div>
+							<div><h3>Work Experience</h3></div>
 						</li>
 						<li class="animate-box" v-for="(el,index) in 工作经历" :class="index%2===0?'timeline-unverted':'timeline-inverted'">
 							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
@@ -138,17 +118,17 @@
 						</li>
 						<br>
 						<li class="timeline-heading text-center animate-box">
-							<div><h3>教育经历</h3></div>
+							<div><h3>Education background</h3></div>
 						</li>
-						<li class=" animate-box"  v-for="(el,index) in 教育经历" :class="index%2===0?'timeline-unverted':'timeline-inverted'">
+						<li class=" animate-box"  v-for="(el,index) in education" :class="index%2===0?'timeline-unverted':'timeline-inverted'">
 							<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">{{el.学段}}</h3>
-									<span class="company">{{el.学校名称}} - {{el.时间}}</span>
+									<h3 class="timeline-title">{{el.Level}}</h3>
+									<span class="company">{{el.SchoolName}} - {{el.Time}}</span>
 								</div>
 								<div class="timeline-body">
-									<p>{{el.介绍}}</p>
+									<p>{{el.Intro}}</p>
 								</div>
 							</div>
 						</li>
@@ -164,18 +144,18 @@
 			<div class="services-padding">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>我&nbsp;&nbsp;/&nbsp;&nbsp;的&nbsp;&nbsp;/&nbsp;&nbsp;能&nbsp;&nbsp;/&nbsp;&nbsp;力</h2>
+						<h2>Personal Hobbies</h2>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 text-center" v-for="(el,index) in 我的能力">
+					<div class="col-md-4 text-center" v-for="(el,index) in ability">
 						<div class="feature-left" style="width:100%">
-							<span class="icon">
+							<!-- <span class="icon">
 								<i class="icon-paintbrush"></i>
-							</span>
+							</span> -->
 							<div class="feature-copy">
-								<h3>{{el.名称}}</h3>
-								<p>{{el.介绍}}</p>
+								<h3>{{el.name}}</h3>
+								<p>{{el.intro}}</p>
 							</div>
 						</div>
 					</div>
@@ -188,12 +168,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>我&nbsp;&nbsp;/&nbsp;&nbsp;的&nbsp;&nbsp;/&nbsp;&nbsp;技&nbsp;&nbsp;/&nbsp;&nbsp;能</h2>
+					<h2>Programming Skills</h2>
 				</div>
 			</div>
 			<div class="row row-pb-md">
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center" v-for="el in 我的技能">
-					<div class="chart" :data-percent="el.进度"><span><strong>{{el.名称}}</strong>{{el.进度}}%</span></div>
+				<div class="col-md-3 col-sm-6 col-xs-12 text-center" v-for="el in skills">
+					<div class="chart" :data-percent="el.percent"><span><strong>{{el.name}}</strong>{{el.percent}}%</span></div>
 				</div>
 			</div>
 		</div>
@@ -203,15 +183,15 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>我&nbsp;&nbsp;/&nbsp;&nbsp;的&nbsp;&nbsp;/&nbsp;&nbsp;作&nbsp;&nbsp;/&nbsp;&nbsp;品</h2>
+					<h2>My Work</h2>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3 text-center col-padding animate-box" v-for="el in 我的作品">
-					<a :href="el.地址" class="work" :style="'background-image: url('+el.图片+');'">
+				<div class="col-md-3 text-center col-padding animate-box" v-for="el in work">
+					<a :href="el.link" class="work" :style="'background-image: url('+el.pic+');'">
 						<div class="desc">
-							<h3>{{el.名称}}</h3>
-							<span>{{el.简介}}</span>
+							<h3>{{el.name}}</h3>
+							<span>{{el.intro}}</span>
 						</div>
 					</a>
 				</div>
