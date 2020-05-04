@@ -247,10 +247,10 @@ h1, h2, h3, h4, h5, h6, figure {
   margin: 0 auto;
   background: #fff;
   margin-bottom: 20px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
+  -webkit-border-radius: 30%;
+  -moz-border-radius: 30%;
+  -ms-border-radius: 30%;
+  border-radius: 30%;
 }
 #fh5co-features .feature-left .icon i {
   font-size: 50px;
@@ -709,6 +709,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .work {
   background-size: cover;
+  border-radius: 24%;
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
@@ -1116,8 +1117,8 @@ input[type="text"] {
   border: 2px solid #069ffa;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background: #ff9b1a !important;
-  border-color: #ff9b1a !important;
+  background: #069ffa !important;
+  border-color: #069ffa !important;
 }
 .btn-primary.btn-outline {
   background: transparent;

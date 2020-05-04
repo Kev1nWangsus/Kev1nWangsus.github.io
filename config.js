@@ -18,15 +18,20 @@ var app = new Vue({
         link: 'https://live.bilibili.com/14862896'
       },
       {
-        type: 'instagram',
-        link: '1'
+        type: 'email',
+        link: 'mailto:1875689740ws@gmail.com'
       }
     ],
     hi: "Yo! What's up!",
     content: "My name is Shuo Wang. I'm a first year computer engineering student in UC Santa Barbara. I like coding, but I'm currently working on embedded system and hardware design.",
     /** Personal resume*/
     interns: [
-      
+      // {
+      //   occupation: '',
+      //   company: '',
+      //   time: '',
+      //   intro: ''
+      // }
     ],
     /** Education background*/
     education: [
@@ -55,7 +60,7 @@ var app = new Vue({
       },
       {
         name: 'RAP',
-        intro: 'Rip'
+        intro: 'rap'
       },
       {
         name: '篮球',
@@ -66,23 +71,23 @@ var app = new Vue({
     skills: [
       {
         name: 'Python',
-        percent: 100,
+        percent: 90,
       },
       {
         name: 'C/C++',
-        percent: 100
-      },
-      {
-        name: 'html/css',
         percent: 80
       },
       {
+        name: 'html/css',
+        percent: 70
+      },
+      {
         name: 'Linux',
-        percent: 60
+        percent: 50
       },
       {
         name: 'Embedded System',
-        percent: 50
+        percent: 30
       }
     ],
     /** work*/
