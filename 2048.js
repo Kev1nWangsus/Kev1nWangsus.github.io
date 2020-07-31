@@ -72,7 +72,7 @@ class Game {
 
     initializeData() {
         this.data = [];
-        let a = 0;
+        this.score = 0;
         for (let i = 0; i < GAME_SIZE; i++) {
             let tmp = []
             for (let j = 0; j < GAME_SIZE; j++) {
@@ -116,6 +116,7 @@ class Game {
         let tail = 1;
         let incr = 1;
         let moves = [];
+        let score = 0;
         if (reverse == true) {
             head = arr.length - 1;
             tail = head - 1;
@@ -135,7 +136,7 @@ class Game {
                     if (arr[head] == 2048) {
                         this.victory = true;
                     }
-                    this.score += arr[head]
+                    score += arr[head];
                     arr[tail] = null;
                     moves.push([tail, head])
                     head += incr;
@@ -148,7 +149,10 @@ class Game {
                 }
             }
         }
-        return moves;
+        return {
+            "moves": moves,
+            "score": score
+        }
     }
 
     advance(command) {
@@ -156,9 +160,11 @@ class Game {
         let moves = [];
         if (command == "left" || command == "right") {   
             for (let i = 0; i < GAME_SIZE; i++) {
-                let rowMove = this.shiftBlock(this.data[i], reverse);
-                for (let move of rowMove)
+                let result = this.shiftBlock(this.data[i], reverse);
+                for (let move of result.moves) {
                     moves.push([[i, move[0]], [i, move[1]]]);
+                }
+                this.score += result.score;
             }
         } else if (command == "up" || command == "down") {
             for (let j = 0; j < GAME_SIZE; j++) {
@@ -166,24 +172,27 @@ class Game {
                 for (let i = 0; i < GAME_SIZE; i++) {
                     tmp.push(this.data[i][j]);
                 }
-                let colMove = this.shiftBlock(tmp, reverse);
-                for (let move of colMove) {
+                let result = this.shiftBlock(tmp, reverse);
+                for (let move of result.moves) {
                     moves.push([[move[0], j], [move[1], j]]);
                 }
                 for (let i = 0; i < GAME_SIZE; i++) {
                     this.data[i][j] = tmp[i];
                 }
+                this.score += result.score;
             }
         }
 
         if (moves.length){
             this.generateNewBlock();
-            this.score += 2;
         }   
 
         game.checkGameOver();
 
-        return moves;
+        return {
+            "moves": moves,
+            "score": this.score
+        }
     }
 
     checkGameOver() {
@@ -206,8 +215,6 @@ class Game {
                 }
             }
         }
-        console.log(row);
-        console.log(col);
         if (row == 12 && col == 12) {
             this.loss = true;
         }
@@ -380,18 +387,20 @@ var view = new View(game, container);
 view.drawGame();
 
 document.onkeydown = function(event) {
+    let moves = null;
+    let result = null;
     if (event.key == "ArrowLeft"){
-        moves = game.advance("left");
+        result = game.advance("left");
     } else if (event.key == "ArrowRight") {
-        moves = game.advance("right");
+        result = game.advance("right");
     } else if (event.key == "ArrowDown") {
-        moves = game.advance("down");
+        result = game.advance("down");
     } else if (event.key == "ArrowUp") {
-        moves = game.advance("up");
+        result = game.advance("up");
     }
 
-    if (moves.length > 0){
-        view.animate(moves);
+    if (result && result.moves.length > 0){
+        view.animate(result.moves);
         if (game.loss) {
             game.showLoss();
         }
