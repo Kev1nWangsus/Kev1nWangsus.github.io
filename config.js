@@ -23,7 +23,7 @@ var app = new Vue({
       }
     ],
     hi: "Yo! What's up!",
-    content: "My name is Shuo Wang. I'm a first year computer engineering student in UC Santa Barbara. I like coding, but I'm currently working on embedded system and hardware design.",
+    content: "My name is Shuo Wang. I'm a second-year computer engineering student in UC Santa Barbara. I like coding, but I'm currently working on embedded system and hardware design.",
     /** Personal resume*/
     interns: [
       // {
@@ -45,7 +45,7 @@ var app = new Vue({
         Level: 'College',
         SchoolName: 'UC Santa Barbara',
         Time: '2019 - Present',
-        Intro: 'Major : Computer Engineering'
+        Intro: 'Major: Computer Engineering'
       },
     ],
     /** ability*/
@@ -71,23 +71,23 @@ var app = new Vue({
     skills: [
       {
         name: 'Python',
-        percent: 90,
+        percent: 70,
       },
       {
         name: 'C/C++',
-        percent: 80
-      },
-      {
-        name: 'html/css',
-        percent: 70
-      },
-      {
-        name: 'Linux',
         percent: 50
       },
       {
-        name: 'Embedded System',
+        name: 'html/css',
+        percent: 60
+      },
+      {
+        name: 'Linux',
         percent: 30
+      },
+      {
+        name: 'Embedded System',
+        percent: 10
       }
     ],
     /** work*/
