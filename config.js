@@ -23,7 +23,7 @@ var app = new Vue({
       }
     ],
     hi: "Yo! What's up!",
-    content: "My name is Shuo Wang. I'm a second-year computer engineering student in UC Santa Barbara. I like coding, but I'm currently working on embedded system and hardware design.",
+    content: "My name is Shuo Wang. I'm a second-year computer engineering student in UC Santa Barbara. I enjoy working on hardware projects including embedded system and PCB design. I also code games in my leisure time.",
     /** Personal resume*/
     interns: [
       // {
